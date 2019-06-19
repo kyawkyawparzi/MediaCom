@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "137201588356",
+    "firebase_url": "https://easytoconn101298.firebaseio.com",
+    "project_id": "easytoconn101298",
+    "storage_bucket": "easytoconn101298.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137201588356:android:71f283815c55f7ec",
+        "android_client_info": {
+          "package_name": "pmt.kyawkyaw.myapp.easy2conn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137201588356-7vhi4ml81kddnajbcfng76f3h6qi6dcf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBLHqHrI5PqRTT1RJLJEyAL8ih7otzuZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137201588356-7vhi4ml81kddnajbcfng76f3h6qi6dcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137201588356:android:78ec9d5a7d4daf5f",
+        "android_client_info": {
+          "package_name": "pmt.kyawkyaw.myapp.mediacom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137201588356-7vhi4ml81kddnajbcfng76f3h6qi6dcf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBLHqHrI5PqRTT1RJLJEyAL8ih7otzuZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137201588356-7vhi4ml81kddnajbcfng76f3h6qi6dcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
