@@ -14,5 +14,10 @@
     </style>
     <style name="AppTheme.AppOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopOverlay" parent="ThemeOverlay.AppCompat.Light"/>
-
+    <style name="MyAlertDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+    </style>
 </resources>

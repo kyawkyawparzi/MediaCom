@@ -6,25 +6,24 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@drawable/person_blue"
+        android:visibility="gone"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/profile_image"
-        android:visibility="gone"/>
-
+        android:src="@drawable/person_blue"/>
     <TextView
-        android:id="@+id/send_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/send_message"
         android:layout_alignParentEnd="true"
         android:background="@drawable/style_of_chat_right"
         android:padding="6dp"
         android:text="hello"
         android:layout_marginTop="3dp"
         android:layout_marginRight="10dp"
-        android:textSize="15sp" />
+        android:textSize="15sp"/>
     <TextView
-        android:visibility="gone"
+        android:text="seen unseen"
         android:id="@+id/txt_seen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,4 +31,14 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="15dp"
         android:textSize="12sp"/>
+    <TextView
+        android:text="right time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_seen"
+        android:id="@+id/send_times"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp"
+        android:textSize="15dp"/>
+
 </RelativeLayout>

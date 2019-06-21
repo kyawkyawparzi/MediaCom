@@ -3,6 +3,9 @@ package pmt.kyawkyaw.myapp.mediacom;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import pmt.kyawkyaw.myapp.mediacom.adapter.BackpressCtrl;
 import pmt.kyawkyaw.myapp.mediacom.fragment.FragmentOne;
 import pmt.kyawkyaw.myapp.mediacom.fragment.FragmentThree;
 import pmt.kyawkyaw.myapp.mediacom.fragment.FragmentTwo;
@@ -35,12 +39,12 @@ import pmt.kyawkyaw.myapp.mediacom.model.User;
 
 public class MainView extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-
     RecyclerView recyclerView;
     AppBarLayout appBarLayout;
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
     private TextView mTextMessage;
+    NavigationView navigationView;
 
     //fragments
      FragmentOne fone;
@@ -93,7 +97,6 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
                     Glide.with(getApplicationContext()).load(my_data.getPicture()).into(profile_image);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -106,14 +109,17 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
         switch (menuItem.getItemId()) {
                 case R.id.navigation_chat:
                     navController.navigate(R.id.fragmentOne);
+                    BackpressCtrl.ctrl="nav_chat";
                     return true;
                 case R.id.navigation_people:
                     navController.navigate(R.id.fragmentTwo);
+                    BackpressCtrl.ctrl="nav_people";
                     //Toast.makeText(getApplicationContext(),"Fragment Two",Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.navigation_public:
                     //Toast.makeText(getApplicationContext(),"Fragment Two",Toast.LENGTH_LONG).show();
                     navController.navigate(R.id.fragmentThree);
+                    BackpressCtrl.ctrl="nav_public";
                     return true;
             }
         return false;
@@ -141,6 +147,13 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
     }
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //.onBackPressed();
+       if(!BackpressCtrl.ctrl.equals("nav_chat")) {
+            navController.navigate(R.id.fragmentOne);
+            BackpressCtrl.ctrl="recyclerview";
+        }
+        else {
+            finish();
+        }
     }
 }
