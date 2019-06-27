@@ -1,21 +1,18 @@
 package pmt.kyawkyaw.myapp.mediacom.notification;
 
 public class Data {
-    private String user;
-    private int icon;
-    private String body;
-    private String title;
-    private String sented;
+    private String  user,body,title,sent;
+    private Integer icon;
 
-    public Data(String user, int icon, String body, String title, String sented) {
+    public Data() {
+
+    }
+    public Data(String user, String body, String title, String sent, Integer icon) {
         this.user = user;
-        this.icon = icon;
         this.body = body;
         this.title = title;
-        this.sented = sented;
-    }
-    public Data(){
-
+        this.sent = sent;
+        this.icon = icon;
     }
 
     public String getUser() {
@@ -24,14 +21,6 @@ public class Data {
 
     public void setUser(String user) {
         this.user = user;
-    }
-
-    public int getIcon() {
-        return icon;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
     }
 
     public String getBody() {
@@ -50,11 +39,19 @@ public class Data {
         this.title = title;
     }
 
-    public String getSented() {
-        return sented;
+    public String getSent() {
+        return sent;
     }
 
-    public void setSented(String sented) {
-        this.sented = sented;
+    public void setSent(String sent) {
+        this.sent = sent;
+    }
+
+    public Integer getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Integer icon) {
+        this.icon = icon;
     }
 }

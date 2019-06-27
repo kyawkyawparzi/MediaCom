@@ -16,7 +16,7 @@
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorWhiteDark"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/back"
-                app:civ_border_color="#FF000000"
+                app:civ_border_color="@color/colorWhite"
                 app:civ_border_width="2dp" />
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -35,7 +35,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/person_blue"
-                app:civ_border_color="#FF000000"
+                app:civ_border_color="@color/colorWhite"
                 app:civ_border_width="2dp" />
 
             <TextView
@@ -43,8 +43,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="25dp"
-                android:text="Username" />
+                android:text="Username"
+                android:textColor="@color/textDark"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/on_off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offline"
+                android:textColor="@color/textDark"
+                android:layout_marginLeft="100dp"/>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
@@ -60,30 +68,83 @@
 
     <RelativeLayout
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:id="@+id/my_layout"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:padding="5dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-        <EditText
-            android:id="@+id/message_sent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:hint="Type a message"
-            android:layout_marginRight="10dp"/>
+        <ImageView
+            android:src="@drawable/person_blue"
+            android:id="@+id/show_image"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="40dp"
+            android:visibility="gone"/>
 
         <ImageButton
+            android:background="@color/colorWhite"
+            android:id="@+id/choose_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/show_image"
+            android:src="@drawable/pic_click" />
+
+        <EditText
+            android:layout_below="@+id/show_image"
+            android:id="@+id/message_sent"
+            android:layout_width="322dp"
+            android:layout_height="49dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toRightOf="@+id/choose_image"
+            android:hint="Type a message" />
+
+        <ImageButton
+            android:layout_toLeftOf="@+id/message_sent"
+            android:layout_below="@+id/show_image"
             android:id="@+id/btn_sent"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/send" />
+            android:src="@drawable/send"
+            android:background="@color/colorWhite"/>
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/recycler_pic_view"-->
+            <!--android:layout_below="@+id/message_sent"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:orientation="horizontal">-->
+
+        <!--</android.support.v7.widget.RecyclerView>-->
+        <!--<LinearLayout-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_below="@id/recycler_pic_view"-->
+            <!--android:id="@+id/layout_cancel_ok"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:weightSum="2"-->
+            <!--android:layout_centerInParent="true">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/negative_icon"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/cancel"-->
+                <!--android:layout_weight="1"/>-->
+            <!--<ImageView-->
+                <!--android:id="@+id/positive_icon"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ok"-->
+                <!--android:layout_weight="1"/>-->
+
+        <!--</LinearLayout>-->
 
     </RelativeLayout>
 </RelativeLayout>
