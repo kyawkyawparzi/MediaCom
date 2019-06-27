@@ -1,5 +1,6 @@
 package pmt.kyawkyaw.myapp.mediacom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -44,7 +45,6 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
     private TextView mTextMessage;
-    NavigationView navigationView;
 
     //fragments
      FragmentOne fone;
@@ -57,12 +57,15 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
     CircleImageView profile_image;
     BottomNavigationView my_view;
 
+    private int get_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_view);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getWindow().setStatusBarColor(getColor(R.color.colorWhiteDark));
 
         appBarLayout=findViewById(R.id.appbar);
         bottomNavigationView = findViewById(R.id.nav_view);
@@ -72,6 +75,7 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
         fthree=new FragmentThree();
         navController= Navigation.findNavController(this,R.id.fragment_hosts);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.getMenu().findItem(R.id.navigation_chat).setChecked(true);
 
         //load user profile
         loadProfile();
@@ -81,6 +85,14 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
 
         //scroll listener
         recyclerView=findViewById(R.id.recycler_view);
+
+        profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                finish();
+            }
+        });
 
     }
 
@@ -106,25 +118,31 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        get_id = menuItem.getItemId();
+        for (int i = 0; i < bottomNavigationView.getMenu().size(); i++) {
+            MenuItem mItem = bottomNavigationView.getMenu().getItem(i);
+            boolean isChecked = mItem.getItemId() == menuItem.getItemId();
+            menuItem.setChecked(isChecked);
+        }
         switch (menuItem.getItemId()) {
                 case R.id.navigation_chat:
                     navController.navigate(R.id.fragmentOne);
                     BackpressCtrl.ctrl="nav_chat";
-                    return true;
+                    break;
                 case R.id.navigation_people:
                     navController.navigate(R.id.fragmentTwo);
                     BackpressCtrl.ctrl="nav_people";
                     //Toast.makeText(getApplicationContext(),"Fragment Two",Toast.LENGTH_LONG).show();
-                    return true;
+                    break;
                 case R.id.navigation_public:
                     //Toast.makeText(getApplicationContext(),"Fragment Two",Toast.LENGTH_LONG).show();
                     navController.navigate(R.id.fragmentThree);
                     BackpressCtrl.ctrl="nav_public";
-                    return true;
+                    break;
             }
         return false;
     }
-
     //for online and offline
     private void status(String status){
         fuser= FirebaseAuth.getInstance().getCurrentUser();
@@ -150,10 +168,12 @@ public class MainView extends AppCompatActivity implements BottomNavigationView.
         //.onBackPressed();
        if(!BackpressCtrl.ctrl.equals("nav_chat")) {
             navController.navigate(R.id.fragmentOne);
-            BackpressCtrl.ctrl="recyclerview";
-        }
-        else {
+            BackpressCtrl.ctrl="nav_chat";
+            bottomNavigationView.getMenu().findItem(R.id.navigation_chat).setChecked(true);
+       }
+       else {
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
-        }
+       }
     }
 }

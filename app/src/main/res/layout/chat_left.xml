@@ -5,19 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/send_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/profile_image" />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_marginLeft="10dp"
         android:id="@+id/profile_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_below="@+id/send_image"
         android:src="@drawable/person_blue" />
     <TextView
+        android:layout_below="@+id/send_image"
         android:layout_marginTop="3dp"
         android:id="@+id/send_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:padding="6dp"
+        android:textColor="@color/textDark"
         android:layout_toRightOf="@+id/profile_image"
         android:background="@drawable/style_of_chat_left"
         android:text="hello"
@@ -31,6 +41,7 @@
         android:layout_below="@id/profile_image"
         android:layout_marginLeft="60dp"/>
     <TextView
+        android:visibility="gone"
         android:id="@+id/send_times"
         android:text="left time"
         android:layout_width="wrap_content"

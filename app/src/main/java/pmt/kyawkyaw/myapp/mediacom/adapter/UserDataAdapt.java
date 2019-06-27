@@ -86,6 +86,7 @@ public class UserDataAdapt extends RecyclerView.Adapter<UserDataAdapt.viewHolder
                 Intent i=new Intent(context, MessagingActivity.class);
                 i.putExtra("id",user.getId());
                 context.startActivity(i);
+                Log.i("ok", "myclick");
             }
         });
     }
@@ -118,7 +119,7 @@ public class UserDataAdapt extends RecyclerView.Adapter<UserDataAdapt.viewHolder
     }
     //last message
     private void lastMessage(final String userid, final TextView lastmsg){
-        thelastmessage="default";
+        thelastmessage="No message!";
         final FirebaseUser firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Chats");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -140,16 +141,9 @@ public class UserDataAdapt extends RecyclerView.Adapter<UserDataAdapt.viewHolder
                         lastmsg.setText("");
                         break;
                     default:
-//                        if(sender==firebaseUser.getUid()){
-//                            lastmsg.setText("You Send : "+thelastmessage);
-//                            break;
-//                        }
-//                        if (!(receiver==firebaseUser.getUid())){
-//                            lastmsg.setText("New Msg : "+thelastmessage);
-//                        }
                         lastmsg.setText(thelastmessage);
                 }
-                thelastmessage="default";
+                thelastmessage="No message!";
             }
 
             @Override

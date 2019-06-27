@@ -53,8 +53,9 @@ public class FragmentThree extends Fragment {
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
 
-    StorageReference storageReference;
+
     private static final int IMAGE_REQUEST=1;
+    StorageReference storageReference;
     private Uri imageUri;
     private StorageTask uploadTask;
 
@@ -85,7 +86,7 @@ public class FragmentThree extends Fragment {
 
                 if(user.getPicture().equals("default")){
                     Log.i("URL","equal default");
-                    profile_image.setImageResource(R.mipmap.ic_launcher);
+                    profile_image.setImageResource(R.drawable.person_blue);
                 }else {
                     Log.i("URL","not equal default");
                     Glide.with(FragmentThree.this.getContext()).load(user.getPicture()).into(profile_image);
@@ -191,7 +192,6 @@ public class FragmentThree extends Fragment {
         ContentResolver contentResolver=getContext().getContentResolver();
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-
     }
 
 }

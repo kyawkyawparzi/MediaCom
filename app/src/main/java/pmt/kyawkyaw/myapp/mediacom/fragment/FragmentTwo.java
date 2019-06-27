@@ -120,7 +120,7 @@ public class FragmentTwo extends Fragment {
 
                         assert fire_user_data!=null;
                         assert fuser!=null;
-                        Log.i("load", "Load Data");
+                        //Log.i("load", "Load Data");
                         if(!fire_user_data.getId().equals(fuser.getUid())){
                             data_adapt.add(fire_user_data);
                         }

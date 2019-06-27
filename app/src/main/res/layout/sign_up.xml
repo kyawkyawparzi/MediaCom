@@ -6,40 +6,124 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
-
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="303dp"
-        android:layout_marginTop="150dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/name"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:hint="Enter name" />
+            android:background="@color/colorWhiteDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <EditText
-            android:id="@+id/email"
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    
+    <ScrollView
+        android:layout_below="@id/appbar"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter You Email"
-            android:inputType="textEmailAddress" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter password!"
-            android:inputType="textPassword" />
+            <ImageView
+                android:id="@+id/my_logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/svg_simple_kite_generate" />
 
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:textColor="@color/colorPrimaryDark" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_below="@+id/my_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp"
+                        android:hint="Enter name" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter You Email"
+                        android:inputType="textEmailAddress" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter password!"
+                        android:inputType="textPassword" />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <Button
+                        android:background="@drawable/background_login"
+                        android:id="@+id/register"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="Register"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textDark"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:background="@drawable/background_login"
+                        android:id="@+id/cancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textAllCaps="false"
+                        android:text="Cancel"
+                        android:layout_weight="1"
+                        android:textColor="@color/textDark" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

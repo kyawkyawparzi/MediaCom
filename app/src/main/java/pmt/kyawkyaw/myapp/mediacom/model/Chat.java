@@ -6,15 +6,19 @@ public class Chat {
     String sender;
     String receiver;
     String message;
+    String image;
     boolean isseen;
     String sendtime;
+    String chatid;
 
-    public Chat(String sender, String receiver, String message,String sendtime,boolean isseen) {
+    public Chat(String sender, String receiver, String message,String sendtime,String chatid,String image,boolean isseen) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
+        this.image=image;
         this.isseen=isseen;
         this.sendtime=sendtime;
+        this.chatid=chatid;
     }
 
     public Chat(){
@@ -59,5 +63,21 @@ public class Chat {
 
     public void setSendtime(String sendtime) {
         this.sendtime = sendtime;
+    }
+
+    public String getChatid() {
+        return chatid;
+    }
+
+    public void setChatid(String chatid) {
+        this.chatid = chatid;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
